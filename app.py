@@ -24,6 +24,23 @@ def submit_bid():
         writer = csv.writer(file)
         writer.writerow([client_name, contact_info, address, material_total, labor_total, timeframe])
 
+
+@app.route('/submit_job', methods=['POST'])
+def submit_job():
+    client_name = request.form.get('client_name')
+    contact_info = request.form.get('contact_info')
+    location = request.form.get('location')
+    start_date = request.form.get('start_date')
+    estimated_enddate = request.form.get('estimated_enddate')
+    onsite_workers = request.form.get('onsite_workers')
+    total_price = request.form.get('total_price')
+    progress = request.form.get('progress')
+
+    # Write to jobs.csv
+    with open('C:\\Users\\dusti\\OneDrive\\Desktop\\Jobs\\jobs.csv', mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([client_name, contact_info, location, start_date, estimated_enddate, onsite_workers, total_price, progress])
+
     # Redirect back to the home page
     return redirect('/')
 
