@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect
 import csv
-import pandas as pd
 
 app = Flask(__name__)
 
@@ -20,7 +19,7 @@ def submit_bid():
     timeframe = request.form.get('timeframe')
 
     # Write to bids.csv
-    with open('C:\\Users\\dusti\\OneDrive\\Desktop\\Jobs\\bids.csv', mode='a', newline='') as file:
+    with open('bids.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([client_name, contact_info, address, material_total, labor_total, timeframe])
 
