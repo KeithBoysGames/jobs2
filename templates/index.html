@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job and Bid Management</title>
+</head>
+<body>
+    <h1>Jobs</h1>
+    <table>
+        <tr>
+            <th>Client Name</th>
+            <th>Contact Info</th>
+            <th>Location</th>
+            <th>Start Date</th>
+            <th>Estimated EndDate</th>
+            <th>Onsite Workers</th>
+            <th>Total Price</th>
+            <th>Progress</th>
+        </tr>
+        {% for job in jobs %}
+        <tr>
+            <td>{{ job['Client Name'] }}</td>
+            <td>{{ job['Contact Info'] }}</td>
+            <td>{{ job['Location'] }}</td>
+            <td>{{ job['Start Date'] }}</td>
+            <td>{{ job['Estimated Enddate'] }}</td>
+            <td>{{ job['Onsite Workers'] }}</td>
+            <td>{{ job['Total Price'] }}</td>
+            <td>{{ job['Progress'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Bids</h2>
+    <table>
+        <tr>
+            <th>Client Name</th>
+            <th>Contact Info</th>
+            <th>Address</th>
+            <th>Date of Bid</th>
+            <th>Material Estimate</th>
+            <th>Labor Estimate</th>
+            <th>Estimated Timeframe</th>
+            <th>Estimated Number of Workers</th>
+            <th>Total Bid</th>
+            <th>Status</th>
+        </tr>
+        {% for bid in bids %}
+        <tr>
+            <td>{{ bid['Client Name'] }}</td>
+            <td>{{ bid['Contact Info'] }}</td>
+            <td>{{ bid['Address'] }}</td>
+            <td>{{ bid['Date of Bid'] }}</td>
+            <td>{{ bid['Material Estimate'] }}</td>
+            <td>{{ bid['Labor Estimate'] }}</td>
+            <td>{{ bid['Estimated Timeframe'] }}</td>
+            <td>{{ bid['Estimated Number of Workers'] }}</td>
+            <td>{{ bid['Total Bid'] }}</td>
+            <td>{{ bid['Status'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Input Bids</h3>
+    <form action="/submit_bid" method="POST">
+        <label for="client_name">Clients Name:</label><br>
+        <input type="text" id="client_name" name="client_name" value=""><br>
+        <label for="contact_info">Contact Info:</label><br>
+        <input type="text" id="contact_info" name="contact_info" value=""><br>
+        <label for="address">Clients Address:</label><br>
+        <input type="text" id="address" name="address" value=""><br>
+        <label for="material_total">Material Total:</label><br>
+        <input type="text" id="material_total" name="material_total" value=""><br>
+        <label for="labor_total">Labor total:</label><br>
+        <input type="text" id="labor_total" name="labor_total" value=""><br>
+        <label for="timeframe">Estimated Timeframe:</label><br>
+        <input type="text" id="timeframe" name="timeframe" value=""><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
