@@ -28,7 +28,7 @@ def submit_bid():
     labor_estimate = request.form.get('labor_estimate')
     estimated_timeframe = request.form.get('estimated_timeframe')
     estimated_number_of_workers = request.form.get('estimated_number_of_workers')
-    grand_total_of_bid = request.form.get('grand_total')
+    grand_total_of_bid = request.form.get('grand_total_of_bid')
     status = request.form.get('status')
 
     # Write to bids.csv
