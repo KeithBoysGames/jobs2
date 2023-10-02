@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect
 import csv
 
+app = Flask(__name__)
+
 def read_csv(filename):
     with open(filename, 'r') as file:
         reader = csv.DictReader(file)
@@ -12,13 +14,6 @@ def index():
     bids = read_csv('bids.csv')
     return render_template('index.html', jobs=jobs, bids=bids)
 
-app = Flask(__name__)
-
-@app.route('/', methods=['GET'])
-def index():
-    # Normally, you'd read in 'jobs.csv' and 'bids.csv' here and pass them to the template
-    # For this example, we'll pass empty lists.
-    return render_template('index.html', jobs=[], bids=[])
 
 @app.route('/submit_bid', methods=['POST'])
 def submit_bid():
