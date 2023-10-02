@@ -1,6 +1,17 @@
 from flask import Flask, render_template, request, redirect
 import csv
 
+def read_csv(filename):
+    with open(filename, 'r') as file:
+        reader = csv.DictReader(file)
+        return list(reader)
+    
+@app.route('/')
+def index():
+    jobs = read_csv('jobs.csv')
+    bids = read_csv('bids.csv')
+    return render_template('index.html', jobs=jobs, bids=bids)
+
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
