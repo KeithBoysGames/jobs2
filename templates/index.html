@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 <head>
     <title>Job and Bid Management</title>
 </head>
@@ -18,17 +19,44 @@
         </tr>
         {% for job in jobs %}
         <tr>
-            <td>{{ job['Client Name'] }}</td>
-            <td>{{ job['Contact Info'] }}</td>
-            <td>{{ job['Location'] }}</td>
-            <td>{{ job['Start Date'] }}</td>
-            <td>{{ job['Estimated Enddate'] }}</td>
-            <td>{{ job['Onsite Workers'] }}</td>
-            <td>{{ job['Total Price'] }}</td>
-            <td>{{ job['Progress'] }}</td>
+            <td>{{ job['client_name'] }}</td>
+            <td>{{ job['contact_info'] }}</td>
+            <td>{{ job['location'] }}</td>
+            <td>{{ job['start_date'] }}</td>
+            <td>{{ job['estimated_enddate'] }}</td>
+            <td>{{ job['onsite_workers'] }}</td>
+            <td>{{ job['total_price'] }}</td>
+            <td>{{ job['progress'] }}</td>
         </tr>
         {% endfor %}
     </table>
+
+    <form action="/submit_job" method="POST">
+        <label for="job_client_name">Clients Name:</label><br>
+        <input type="text" id="job_client_name" name="client_name" value=""><br>
+
+        <label for="job_contact_info">Contact Info:</label><br>
+        <input type="text" id="job_contact_info" name="contact_info" value=""><br>
+
+        <label for="job_location">job location:</label><br>
+        <input type="text" id="job_location" name="location" value=""><br>
+
+        <label for="job_start_date">start date:</label><br>
+        <input type="text" id="job_start_date" name="start_date" value=""><br>
+
+        <label for="job_estimated_enddate">Estimated Enddate:</label><br>
+        <input type="text" id="job_estimated_enddate" name="estimated_enddate" value=""><br>
+
+        <label for="job_onsite_workers">Onsite Workers:</label><br>
+        <input type="text" id="job_onsite_workers" name="onsite_workers" value=""><br>
+
+        <label for="job_total_price">Total Price:</label><br>
+        <input type="text" id="job_total_price" name="total_price" value=""><br>
+
+        <label for="job_progress">Progress:</label><br>
+        <input type="text" id="job_progress" name="progress" value=""><br>
+        <input type="submit" value="Submit">
+    </form>
 
     <h2>Bids</h2>
     <table>
@@ -46,34 +74,48 @@
         </tr>
         {% for bid in bids %}
         <tr>
-            <td>{{ bid['Client Name'] }}</td>
-            <td>{{ bid['Contact Info'] }}</td>
-            <td>{{ bid['Address'] }}</td>
-            <td>{{ bid['Date of Bid'] }}</td>
-            <td>{{ bid['Material Estimate'] }}</td>
-            <td>{{ bid['Labor Estimate'] }}</td>
-            <td>{{ bid['Estimated Timeframe'] }}</td>
-            <td>{{ bid['Estimated Number of Workers'] }}</td>
-            <td>{{ bid['Total Bid'] }}</td>
-            <td>{{ bid['Status'] }}</td>
+            <td>{{ bid['client_name'] }}</td>
+            <td>{{ bid['contact_info'] }}</td>
+            <td>{{ bid['address'] }}</td>
+            <td>{{ bid['date_of_bid'] }}</td>
+            <td>{{ bid['material_estimate'] }}</td>
+            <td>{{ bid['labor_estimate'] }}</td>
+            <td>{{ bid['estimated_timeframe'] }}</td>
+            <td>{{ bid['estimated_number_of_workers'] }}</td>
+            <td>{{ bid['grand_total_bid'] }}</td>
+            <td>{{ bid['status'] }}</td>
         </tr>
         {% endfor %}
     </table>
 
     <h3>Input Bids</h3>
     <form action="/submit_bid" method="POST">
-        <label for="client_name">Clients Name:</label><br>
-        <input type="text" id="client_name" name="client_name" value=""><br>
-        <label for="contact_info">Contact Info:</label><br>
-        <input type="text" id="contact_info" name="contact_info" value=""><br>
-        <label for="address">Clients Address:</label><br>
-        <input type="text" id="address" name="address" value=""><br>
-        <label for="material_total">Material Total:</label><br>
-        <input type="text" id="material_total" name="material_total" value=""><br>
-        <label for="labor_total">Labor total:</label><br>
-        <input type="text" id="labor_total" name="labor_total" value=""><br>
-        <label for="timeframe">Estimated Timeframe:</label><br>
-        <input type="text" id="timeframe" name="timeframe" value=""><br>
+        <label for="bid_client_name">Clients Name:</label><br>
+        <input type="text" id="bid_client_name" name="client_name" value=""><br>
+
+        <label for="bid_contact_info">Contact Info:</label><br>
+        <input type="text" id="bid_contact_info" name="contact_info" value=""><br>
+
+        <label for="bid_address">Clients Address:</label><br>
+        <input type="text" id="bid_address" name="address" value=""><br>
+
+        <label for="bid_material_total">Material Total:</label><br>
+        <input type="text" id="bid_material_total" name="material_total" value=""><br>
+
+        <label for="bid_labor_total">Labor total:</label><br>
+        <input type="text" id="bid_labor_total" name="labor_total" value=""><br>
+
+        <label for="bid_timeframe">Grand Total of Bid:</label><br>
+        <input type="text" id="bid_grand total" name="grand_total" value=""><br>
+
+        <label for="bid_timeframe">Estimated Timeframe:</label><br>
+        <input type="text" id="bid_timeframe" name="timeframe" value=""><br>
+
+        <label for="bid_estimated_number_of_workers">Estimated Number of Workers:</label><br>
+        <input type="text" id="bid_estimated number of workers" name="estimated_number_of_workers" value=""><br>
+
+        <label for="bid_status_of_bid">Status of Bid:</label><br>
+        <input type="text" id="bid_status_of_bid" name="status_of_bid" value=""><br>
         <input type="submit" value="Submit">
     </form>
 </body>

@@ -14,14 +14,18 @@ def submit_bid():
     client_name = request.form.get('client_name')
     contact_info = request.form.get('contact_info')
     address = request.form.get('address')
-    material_total = request.form.get('material_total')
-    labor_total = request.form.get('labor_total')
-    timeframe = request.form.get('timeframe')
+    date_of_bid = request.form.get('date_of_bid')
+    material_estimate = request.form.get('material_estimate')
+    labor_estimate = request.form.get('labor_estimate')
+    estimated_timeframe = request.form.get('estimated_timeframe')
+    estimated_number_of_workers = request.form.get('estimated_number_of_workers')
+    grand_total_of_bid = request.form.get('grand_total')
+    status = request.form.get('status')
 
     # Write to bids.csv
     with open('bids.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([client_name, contact_info, address, material_total, labor_total, timeframe])
+        writer.writerow([client_name, contact_info, address, date_of_bid, material_estimate, labor_estimate, estimated_timeframe, estimated_number_of_workers, grand_total_of_bid, status])
 
 
 @app.route('/submit_job', methods=['POST'])
