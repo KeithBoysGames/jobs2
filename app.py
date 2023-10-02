@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request, redirect
 import csv
+import os
 
 app = Flask(__name__)
 
 def read_csv(filename):
+    if not os.path.exists(filename):
+        return []
     with open(filename, 'r') as file:
         reader = csv.DictReader(file)
         return list(reader)
