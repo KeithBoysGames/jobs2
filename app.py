@@ -31,6 +31,8 @@ def submit_bid():
     grand_total_of_bid = request.form.get('grand_total_of_bid')
     status = request.form.get('status')
 
+    return redirect('/')
+
     # Write to bids.csv
     with open('bids.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
@@ -48,23 +50,22 @@ def submit_job():
     total_price = request.form.get('total_price')
     progress = request.form.get('progress')
 
-@app.route('/view_jobs')
-def view_jobs():
-    jobs = read_csv('jobs.csv')
-    return render_template('view_jobs.html', jobs=jobs)
-
-@app.route('view_bids')
-def view_bids():
-    bids = read_csv('bids.csv')
-    return render_template('view_bids.html', bids=bids)
-
     # Write to jobs.csv
     with open('C:\\Users\\dusti\\OneDrive\\Desktop\\Jobs\\jobs.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([client_name, contact_info, location, start_date, estimated_enddate, onsite_workers, total_price, progress])
 
-    # Redirect back to the home page
     return redirect('/')
+
+@app.route('/view_jobs')
+def view_jobs():
+    jobs = read_csv('jobs.csv')
+    return render_template('view_jobs.html', jobs=jobs)
+
+@app.route('/view_bids')
+def view_bids():
+    bids = read_csv('bids.csv')
+    return render_template('view_bids.html', bids=bids)
 
 if __name__ == '__main__':
     app.run(debug=True)
