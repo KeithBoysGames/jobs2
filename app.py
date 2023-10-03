@@ -48,6 +48,16 @@ def submit_job():
     total_price = request.form.get('total_price')
     progress = request.form.get('progress')
 
+@app.route('/view_jobs')
+def view_jobs():
+    jobs = read_csv('jobs.csv')
+    return render_template('view_jobs.html', jobs=jobs)
+
+@app.route('view_bids')
+def view_bids():
+    bids = read_csv('bids.csv')
+    return render_template('view_bids.html', bids=bids)
+
     # Write to jobs.csv
     with open('C:\\Users\\dusti\\OneDrive\\Desktop\\Jobs\\jobs.csv', mode='a', newline='') as file:
         writer = csv.writer(file)

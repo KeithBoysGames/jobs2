@@ -5,7 +5,7 @@
     <title>Job and Bid Management</title>
 </head>
 <body>
-    <h1>Jobs</h1>
+    <h1>Jobs <a href="{{ url_for('view_jobs') }}" target="_blank">View in new window</a></h1>
     <table>
         <tr>
             <th>Client Name</th>
@@ -58,7 +58,7 @@
         <input type="submit" value="Submit">
     </form>
 
-    <h2>Bids</h2>
+    <h2>Bids <a href="{{ url_for('view_bids') }}" target="_blank">View in new window</a></h2>
     <table>
         <tr>
             <th>Client Name</th>
@@ -69,7 +69,7 @@
             <th>Labor Estimate</th>
             <th>Estimated Timeframe</th>
             <th>Estimated Number of Workers</th>
-            <th>Total Bid</th>
+            <th>Grand Total of Bid</th>
             <th>Status</th>
         </tr>
         {% for bid in bids %}
@@ -109,13 +109,13 @@
         <input type="text" id="bid_labor_total" name="labor_total" value=""><br>
 
         <label for="bid_estimated_timeframe">Estimated Timeframe:</label><br>
-        <input type="text" id="bid_estimated_timrframe" name="bid_estimated_timeframe" value=""><br>
+        <input type="text" id="bid_estimated_timeframe" name="estimated_timeframe" value=""><br>
 
         <label for="bid_estimated_number_of_workers">Estimated Number of Workers:</label><br>
-        <input type="text" id="bid_estimated_number_of_workers" name="bid_estimated_number_of_workers" value=""><br>
+        <input type="text" id="bid_estimated_number_of_workers" name="estimated_number_of_workers" value=""><br>
 
         <label for="bid_grand_total_of_bid">Grand Total of Bid:</label><br>
-        <input type="text" id="bid_grand_total_of_bid" name="bid_grand_total_of_bid" value=""><br>
+        <input type="text" id="bid_grand_total_of_bid" name="grand_total_of_bid" value=""><br>
 
         <label for="bid_status_of_bid">Status of Bid:</label><br>
         <input type="text" id="bid_status_of_bid" name="status_of_bid" value=""><br>
