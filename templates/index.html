@@ -63,6 +63,7 @@
         <tr>
             <th>Client Name</th>
             <th>Contact Info</th>
+            <th>Email Address</th>
             <th>Address</th>
             <th>Date of Bid</th>
             <th>Material Estimate</th>
@@ -76,6 +77,7 @@
         <tr>
             <td>{{ bid['client_name'] }}</td>
             <td>{{ bid['contact_info'] }}</td>
+            <td>{{ bid['email_address'] }}</td>
             <td>{{ bid['address'] }}</td>
             <td>{{ bid['date_of_bid'] }}</td>
             <td>{{ bid['material_estimate'] }}</td>
@@ -95,6 +97,9 @@
 
         <label for="bid_contact_info">Contact Info:</label><br>
         <input type="text" id="bid_contact_info" name="contact_info" value=""><br>
+
+        <label for="bid_email_address">Email Address:</label><br>
+        <input type="text" id="bid_email_address" name="email_address" value=""><br>
 
         <label for="bid_address">Clients Address:</label><br>
         <input type="text" id="bid_address" name="address" value=""><br>
