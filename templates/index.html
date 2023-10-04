@@ -11,10 +11,10 @@
             <th>Client Name</th>
             <th>Contact Info</th>
             <th>Location</th>
+            <th>Job Details</th>
             <th>Start Date</th>
             <th>Estimated EndDate</th>
             <th>Onsite Workers</th>
-            <th>Total Price</th>
             <th>Progress</th>
         </tr>
         {% for job in jobs %}
@@ -22,10 +22,10 @@
             <td>{{ job['client_name'] }}</td>
             <td>{{ job['contact_info'] }}</td>
             <td>{{ job['location'] }}</td>
+            <td>{{ job['job_details'] }}</td>
             <td>{{ job['start_date'] }}</td>
             <td>{{ job['estimated_enddate'] }}</td>
             <td>{{ job['onsite_workers'] }}</td>
-            <td>{{ job['total_price'] }}</td>
             <td>{{ job['progress'] }}</td>
         </tr>
         {% endfor %}
@@ -49,9 +49,6 @@
 
         <label for="job_onsite_workers">Onsite Workers:</label><br>
         <input type="text" id="job_onsite_workers" name="onsite_workers" value=""><br>
-
-        <label for="job_total_price">Total Price:</label><br>
-        <input type="text" id="job_total_price" name="total_price" value=""><br>
 
         <label for="job_progress">Progress:</label><br>
         <input type="text" id="job_progress" name="progress" value=""><br>

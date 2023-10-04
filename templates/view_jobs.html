@@ -11,24 +11,24 @@
                 <th>Client Name</th>
                 <th>Contact Info</th>
                 <th>Location</th>
+                <th>Job Details</th>
                 <th>Start Date</th>
                 <th>Estimated EndDate</th>
                 <th>Onsite Workers</th>
-                <th>Total Price</th>
                 <th>Progress</th>
                 <!-- ... and so on for each column -->
             </tr>
         </thead>
         <tbody>
-            {% for bid in bids %}
+            {% for job in jobs %}
             <tr>
-                <td>{{ bid['Client Name'] }}</td>
-                <td>{{ bid['Contact Info'] }}</td>
+                <td>{{ job['Client Name'] }}</td>
+                <td>{{ job['Contact Info'] }}</td>
                 <td>{{ job['location'] }}</td>
+                <td>{{ job['job_details'] }}</td>
                 <td>{{ job['start_date'] }}</td>
                 <td>{{ job['estimated_enddate'] }}</td>
                 <td>{{ job['onsite_workers'] }}</td>
-                <td>{{ job['total_price'] }}</td>
                 <td>{{ job['progress'] }}</td>
                 
                 <!-- ... and so on for each column -->
