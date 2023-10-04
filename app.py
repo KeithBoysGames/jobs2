@@ -22,6 +22,7 @@ def index():
 def submit_bid():
     client_name = request.form.get('client_name')
     contact_info = request.form.get('contact_info')
+    email_address = request.form.get('email_address')
     address = request.form.get('address')
     date_of_bid = request.form.get('date_of_bid')
     material_estimate = request.form.get('material_estimate')
@@ -31,12 +32,14 @@ def submit_bid():
     grand_total_of_bid = request.form.get('grand_total_of_bid')
     status = request.form.get('status')
 
-    return redirect('/')
+    
 
     # Write to bids.csv
-    with open('bids.csv', mode='a', newline='') as file:
+    with open('C:\\Users\\dusti\\OneDrive\\Desktop\\Jobs\\bids.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([client_name, contact_info, address, date_of_bid, material_estimate, labor_estimate, estimated_timeframe, estimated_number_of_workers, grand_total_of_bid, status])
+        writer.writerow([client_name, contact_info, email_address, address, date_of_bid, material_estimate, labor_estimate, estimated_timeframe, estimated_number_of_workers, grand_total_of_bid, status])
+
+    return redirect('/')
 
 
 @app.route('/submit_job', methods=['POST'])
