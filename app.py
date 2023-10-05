@@ -53,6 +53,8 @@ def submit_job():
     onsite_workers = request.form.get('onsite_workers')
     progress = request.form.get('progress')
 
+    print(client_name, contact_info, location, job_details, start_date, estimated_enddate, onsite_workers, progress)
+
     # Write to jobs.csv
     with open('C:\\Users\\dusti\\OneDrive\\Desktop\\Jobs\\jobs.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
